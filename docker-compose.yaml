@@ -1,0 +1,13 @@
+version: "3"
+services:
+  web:
+    image: malloc/go-hello:latest
+    build:
+      context: ./docker/${BUILD}
+    ports:
+      - "8099:80"
+    network_mode: bridge
+    env_file:
+      - .env
+    volumes:
+      - $PWD:/go/src
